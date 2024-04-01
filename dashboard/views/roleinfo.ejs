@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>AetherMix - Discord Bot</title>
+    <link rel="icon" href="https://cdn.discordapp.com/avatars/826542286719549472/e95e7f03584560de5804417a5054c7de.png?size=4096">
+</head>
+<body oncontextmenu="return false" style="    background-color: #1d1d1d;">
+<% function checkdays(date) {
+ let now = new Date();
+ let diff = now.getTime() - date.getTime();
+ let days = Math.floor(diff / 86400000);
+ return days + (days == 1 ? " day" : " days") + " ago";
+} %>
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth; 
+}
+
+
+.favjoin h1 span, .favjoin h2 {
+    font-weight: 700;
+}
+
+button, h1, h2, h3, h4, h5, p, span {
+    unicode-bidi: -moz-plaintext;
+    unicode-bidi: plaintext;
+}
+
+.error-comment, .panel-title, a, abbr, acronym, address, applet, article, aside, audio, b, big, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+    vertical-align: baseline;
+}
+
+
+
+header {
+    background-color: #111111;
+    width: 100%;
+    position: fixed;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 200px ;
+}
+
+.logo{
+    text-decoration: none;
+    color: #cbcbca;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.8em;
+}
+
+.navigation a{
+    color: #cbcbca;
+    text-decoration: none;
+    font-size: 1.8em;
+    font-weight: 500;
+    padding-left: 30px;
+}
+
+.navigation a:hover{
+    color: #cbcbca;
+}
+
+section {
+    padding: 100px 200px;
+}
+
+.support-btn {
+    color: #111111;
+    background-color: #cbcbca;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 600;
+    display: inline-block;
+    padding: 0.9375em 2.1875em;
+    letter-spacing: 1px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    transition: 0.7s ease;
+  }
+
+.main {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: url(images/background.jpeg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: #1d1d1d;
+}
+
+.main h2 {
+    color: #cbcbca;
+    font-size: 1.4em;
+    font-weight: 500;
+    color: #cbcbca;
+}
+
+.main h2 span {
+    display: inline-block;
+    margin-top: 10px;
+    color: #cbcbca;
+    font-size: 3em;
+    font-weight: 600;
+}
+
+.main h3 {
+    color: #cbcbca;
+    font-size: 2em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.flex {
+    flex-direction: column;
+}
+.flex {
+    display: flex;
+}
+
+.flex-1 {
+    flex: 1 1;
+}
+
+.custom-action {
+    padding-top: 100px;
+    -webkit-padding-start: 100px;
+    padding-inline-start: 100px;
+}
+
+.custom-action h1, .custom-action span {
+    -webkit-padding-start: 40px;
+    padding-inline-start: 40px;
+}
+
+.custom-action h1 {
+    -webkit-border-start: 4px solid #5b77dc;
+    border-inline-start: 4px solid #5b77dc;
+}
+
+.action-box h1 {
+    margin: inherit;
+    margin-bottom: 1.2rem;
+    font-size: 3rem;
+}
+
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+element.style {
+    width: 100%;
+}
+
+.botimg {
+    max-width: 100%;
+}
+
+.botimg {
+    max-width: 678px;
+    max-height: 440px;
+}
+
+img, svg {
+    vertical-align: middle;
+}
+
+wiidget {
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-left: 70%;
+}
+.main-btn {
+    color: #fff;
+    background-color: #3a6cf4;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 600;
+    display: inline-block;
+    padding: 0.9375em 2.1875em;
+    letter-spacing: 1px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    transition: 0.7s ease;
+}
+
+.main-btn:hover {
+    background-color: #0a49f6;
+    transform: scale(1.1);
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 1.7em;
+    padding-right: 30px;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    color: #3a6cf4;
+    font-size: 2.2em;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #fff;
+    width: 21.25em;
+    box-shadow: 0 5px 25px rgba(1 1 1 / 15%);
+    border-radius: 10px;
+    padding: 25px;
+    margin: 15px;
+    transition: 0.7s ease;
+}
+
+.card:hover {
+    transform: scale(1.1);
+}
+
+.card .icon {
+    color: #3a6cf4;
+    font-size: 8em;
+    text-align: center;
+}
+
+.info {
+    text-align: center;
+}
+
+.info h3{
+    color: #3a6cf4;
+    font-size: 1.2em;
+    font-weight: 700;
+    margin: 10px;
+    color: white;
+}
+
+.projects {
+    background-color: #000016;
+}
+
+.projects .content{
+    margin-top: 30px;
+}
+
+.project-card {
+    background-color: #fff;
+    border: 1px solid #fff;
+    min-height: 14em;
+    width: 23em;
+    overflow: hidden;
+    border-radius: 10px;
+    margin: 20px;
+    transition: 0.7s ease;
+}
+
+.project-card:hover {
+   transform: scale(1.1);
+}
+
+.project-card:hover .project-image {
+    opacity: 0.9;
+ }
+
+.project-image img{
+    width: 100%
+}
+
+.project-info {
+    padding: 1em;
+}
+
+.project-category {
+    font-size: 0.8em;
+    color: white;
+}
+
+.project-title {
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+    font-weight: 800;
+    margin-top: 10px;
+}
+
+.more-details {
+    text-decoration: none;
+    color: #3a6cf4;
+}
+
+.more-details:hover {
+    color: #601cfc;
+}
+
+.contact .icon{
+    font-size: 4.5em;
+}
+
+.contact .info h3 {
+     color: white;
+}
+
+.contact .info p {
+    font-size: 1.5em;
+}
+
+.footer {
+    background-color: #111111;
+    color: #fff;
+    padding: 2em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-title {
+    font-size: 1.3em;
+    font-weight: 600;
+}
+
+.footer-title span {
+    color: #3a6cf4;
+}
+
+.footer .social-icons a{
+    font-size: 1.3em;
+    padding: 0 12px 0 0;
+}
+
+@media (max-width:1023px){
+    header{
+        padding: 12px 20px;
+    }
+
+    .navigation a{
+        padding-left: 10px;
+    }
+
+    .title{
+        font-size: 1.8em;
+    }
+
+    section{
+        padding: 80px 20px;
+    }
+
+    .main-content h2{
+        font-size: 1em;
+    }
+
+    .main-content h3{
+        font-size: 1.6em;
+        color: white;
+    }
+
+    .content{
+        flex-direction: column;
+        align-items: center;
+    }
+
+}
+
+
+
+
+
+@media (max-width:641px){
+    body{
+        font-size: 12px;
+    }
+
+    .main-content h2{
+        font-size: 0.8em;
+    }
+
+    .main-content h3{
+        font-size: 1.4em;
+        color: white;
+    }
+}
+
+@media (max-width:300px){
+    body{
+        font-size: 10px;
+     
+    }
+}
+
+.pro-img{
+	float: left;
+	width: 40px;
+	margin-top: 5px;
+  border-radius: 40%;
+}
+
+.profile{
+	display: inline-block;
+	float: right;
+	width: 160px;
+}
+
+.profile p{
+	color: white;
+	font-weight: 500;
+	margin-left: 55px;
+	margin-top: 10px;
+	font-size: 13.5px;
+}
+
+.ready {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-right: 150px;
+    margin-left: 120px;
+}
+
+
+
+.right {
+    position: absolute;
+    right: 0;
+    margin-right: 250px;
+    background-color: #3a6cf4;
+    border: 2px solid #3a6cf4;
+    color: #fff;
+    display: inline-block;
+    font-family: Whitney, "Open Sans", Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 11pt;
+    border-radius: 3px;
+    cursor: pointer;
+    height: 45px;
+    width: 250px;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
+}
+
+button {
+    appearance: auto;
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: -internal-light-dark(black, white);
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+    cursor: default;
+    box-sizing: border-box;
+    background-color: -internal-light-dark(rgb(239, 239, 239), rgb(59, 59, 59));
+    margin: 0em;
+    padding: 1px 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+    border-image: initial;
+}
+
+     .guild-icon {
+        margin-bottom: 15px;
+        margin-left: 35px;
+        border-radius: 40%;
+        border: 2px solid #ddd;
+        vertical-align: middle;
+        transition: border-radius .5s cubic-bezier(.5, 1.65, .5, -0.65);
+        display: inline-block;
+        text-decoration: none;
+        border: 2px solid white !important;
+        box-shadow: 0 1px 10px 0 rgba(0,0,0,0.2), 0 5px 20px 0 rgba(0,0,0,0.22) !important;
+      }
+
+.navigation-header {
+    list-style: none;
+    color: #b8b8b8!important;
+    padding: 6px 10px;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: var(--font-display);
+    line-height: 16px;
+    text-transform: uppercase;
+}
+
+
+.line {
+    margin: 8px 20px;
+    height: 1px;
+    background-color: hsla(0,0%,100%,.058823529411764705);
+    border-radius: 60px;
+}
+
+.grid-guilds {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 2rem;
+    margin: 5rem 1rem;
+}
+
+* {
+    box-sizing: border-box;
+    
+}
+
+div {
+    display: block;
+}
+
+.grid-guilds>.guild-parent:nth-child(odd) {
+    justify-self: flex-end;
+}
+
+element.style {
+    --bg: url(https\:\/\/cdn\.discordapp\.com\/icons\/862395376363634708\/null\.webp);
+}
+
+.guild {
+    background: linear-gradient(290.68deg,#0d0921 -5.68%,rgba(12,9,32,0) 524.42%),var(--bg) no-repeat;
+    background-size: 100% auto;
+    background-position: 50%;
+    width: 400px;
+    height: 165px;
+    border-radius: 8px;
+    padding: 4rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.guild .img, .guild img {
+    height: 72px;
+    border-radius: 1rem;
+    width: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #110c2c;
+}
+
+label {
+    cursor: default;
+}
+
+.guild span {
+    font-size: 20px;
+    font-weight: 700;
+    -webkit-margin-start: 2rem;
+    margin-inline-start: 2rem;
+}
+
+.guild .img, .guild img {
+    height: 72px;
+    border-radius: 1rem;
+    width: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #110c2c;
+}
+
+.user {
+    margin-top: 100px;
+    text-align: center;
+}
+
+.user-avatar {
+    border-radius: 2rem;
+}
+
+.user-username {
+    margin: 2rem;
+    color: #cbcbca;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+
+.guild-name {
+        display: inline-block;
+        margin-left: 15px;
+        vertical-align: bottom;
+        cursor: pointer;
+      }
+
+      .pre-text {
+        font-size: 15px;
+      }
+
+      .guild-container{
+        top: 72px;
+        width: 100%;
+        height: 100%;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: box;
+        display: flex;
+        -webkit-box-align: center;
+        -moz-box-align: center;
+        -o-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -moz-box-pack: center;
+        -o-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-orient: vertical;
+        -moz-box-orient: vertical;
+        -o-box-orient: vertical;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+      }
+
+      .guild-container .serv-container {
+        width: 70%;
+        list-style: none;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: box;
+        display: flex;
+        -webkit-box-align: center;
+        -moz-box-align: center;
+        -o-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -moz-box-pack: center;
+        -o-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-orient: horizontal;
+        -moz-box-orient: horizontal;
+        -o-box-orient: horizontal;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-box-lines: multiple;
+        -moz-box-lines: multiple;
+        -o-box-lines: multiple;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+      }
+
+      .guild-icon {
+        margin-bottom: 15px;
+        margin-left: 15px;
+        border-radius: 50%;
+        border: 2px solid #ddd;
+        vertical-align: middle;
+        transition: border-radius .5s cubic-bezier(.5, 1.65, .5, -0.65);
+        display: inline-block;
+        text-decoration: none;
+        border: 2px solid white !important;
+        box-shadow: 0 1px 10px 0 rgba(0,0,0,0.2), 0 5px 20px 0 rgba(0,0,0,0.22) !important;
+      }
+      
+      .guild-container{
+        display: block;
+        overflow-x: auto;
+        overflow-y: hidden;
+      }
+
+      .guild-icon:hover {
+        border-radius: 15px;
+      }
+
+      .serv-container {
+        padding: 15px;
+        display: flex;
+        justify-content: center;
+      } 
+
+      .list-serv {
+        display: block;
+        list-style-type: disc;
+        padding: 0px;
+        list-style: none;
+        opacity: .9;
+      }
+
+      canvas {
+        background-color: #2a2d32
+      }
+
+      canvas:hover {
+        background-color: #7289da;
+      }
+
+
+</style>
+
+
+    <header>
+        <a href="/" class="logo">AetherMix</a>
+        <nav class="navigation">
+            
+           <img src="https://cdn.discordapp.com/avatars/<%= user.id %>/<%= user.avatar %>" class="pro-img" />
+            <a><%= user.username %></a>
+            
+            
+            
+        </nav>
+    </header>
+
+
+    <section class="main">
+
+        <style>
+
+    [class~="tab-card"] {
+        padding-bottom: 16px;
+        padding-top: 16px;
+        background-color: #111111;
+        border-image: none;
+        border-left-color: #111111;
+        border-left-style: solid;
+        border-left-width: 0.625pc;
+        border-radius: 0.241666667in;
+        caret-color: #111111;
+        box-sizing: border-box;
+}
+            
+            .img {
+                vertical-align: middle;
+                border-style: none;
+                caret-color: #00fbfb;
+                box-sizing: border-box;
+            }
+            
+            .h2, h2 {
+                font-size: 2rem;
+            }
+            
+            .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+                margin-bottom: .5rem;
+                font-weight: 500;
+                line-height: 1.2;
+            }
+            
+            * {
+                caret-color: #00fbfb;
+            }
+            
+            * {
+                box-sizing: border-box;
+            }
+            
+            h2 {
+                display: block;
+                font-size: 1.5em;
+                margin-block-start: 0.83em;
+                margin-block-end: 0.83em;
+                margin-inline-start: 0px;
+                margin-inline-end: 0px;
+                font-weight: bold;
+            }
+            
+            .text-center {
+                text-align: center!important;
+            }
+            
+            .row {
+                display: -ms-flexbox;
+                display: flex;
+                -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
+                margin-right: -15px;
+                margin-left: -15px;
+            }
+            
+            
+            
+            .container {
+                width: 100%;
+                padding-right: 15px;
+                padding-left: 15px;
+                margin-right: auto;
+                margin-left: auto;
+            }
+            
+            * {
+                caret-color: #00fbfb;
+            }
+            
+            * {
+                box-sizing: border-box;
+            }
+            
+            [class~="counters"] {
+    font-size: 0.15625in;
+    border-image: none;
+    border-top-color: #cbcbca;
+    border-right-color: #cbcbca;
+    border-bottom-color: #cbcbca;
+    border-left-color: #cbcbca;
+    border-right-style: groove;
+    border-bottom-style: groove;
+    border-left-style: groove;
+    border-top-width: 0.020833333in;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 1.5pt;
+    border-radius: 0.041666667in;
+    margin-top: 0.166666667in;
+    margin-right: 0.166666667in;
+    margin-bottom: 12.000000024pt;
+    margin-left: 1.000000002pc;
+    color: white;
+    background-color: transparent;
+    padding-top: 12.000000024pt;
+    padding-right: 1.000000002pc;
+    padding-bottom: 0.166666667in;
+    padding-left: 1.000000002pc;
+    box-shadow: 0 4px 0.083333333in 0 rgb(0 0 0 / 20%);
+}
+            
+            p {
+                margin-bottom: 0;
+                margin-top: 0;
+                margin-bottom: 1rem;
+            caret-color: #00fbfb;
+                box-sizing: border-box;
+                display: block;
+                margin-block-start: 1em;
+                margin-block-end: 1em;
+                margin-inline-start: 0px;
+                margin-inline-end: 0px;
+            }
+            
+            .fa, .fa-brands, .fa-duotone, .fa-light, .fa-regular, .fa-solid, .fa-thin, .fab, .fad, .fal, .far, .fas, .fat {
+                -moz-osx-font-smoothing: grayscale;
+                -webkit-font-smoothing: antialiased;
+                display: var(--fa-display,inline-block);
+                font-style: normal;
+                font-variant: normal;
+                line-height: 1;
+                text-rendering: auto;
+            }
+            
+            .fa {
+                font-family: var(--fa-style-family,"Font Awesome 6 Free");
+                font-weight: var(--fa-style,900);
+                caret-color: #00fbfb;
+            box-sizing: border-box;
+            }
+            
+            .fa-user:before {
+                content: "\f007";
+            }
+            
+            *, ::after, ::before {
+                box-sizing: border-box;
+            }
+            .h3, h3 {
+                font-size: 1.75rem;
+            }
+            
+            .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+                margin-bottom: .5rem;
+                font-weight: 500;
+                line-height: 1.2;
+            margin-top: 0;
+                    caret-color: #00fbfb;
+                box-sizing: border-box;
+            }
+            
+            h3 {
+                display: block;
+                font-size: 1.17em;
+                margin-block-start: 1em;
+                margin-block-end: 1em;
+                margin-inline-start: 0px;
+                margin-inline-end: 0px;
+                font-weight: bold;
+            }
+            
+            p {
+                margin-bottom: 0;
+            }
+            
+            p {
+                margin-top: 0;
+                margin-bottom: 1rem;
+                caret-color: #00fbfb;
+                box-sizing: border-box;
+                display: block;
+                margin-block-start: 1em;
+                margin-block-end: 1em;
+                margin-inline-start: 0px;
+                margin-inline-end: 0px;
+            }
+
+          .sinfo {
+    margin-bottom: 10px;
+    margin-top: 5px;
+    width: 400px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    justify-content: center;
+    font-weight: 200;
+    background: rgba(var(--server-hover));
+    padding: 5px;
+    margin: 0px;
+    border-radius: 5px;
+}
+          p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    color: rgb(255, 255, 255);
+}
+
+          .button-two {
+    margin-left: 5px;
+}
+    .button {
+    white-space: nowrap;
+    user-select: none;
+    line-height: 1;
+    display: flex;
+    font-size: 13px;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    font-weight: 400;
+    color: rgb(255, 255, 255);
+    background-color: var(--button);
+    cursor: pointer;
+    min-height: 32px;
+    min-width: 60px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    text-decoration: none;
+    padding: 10px 25px;
+    transition: border 180ms ease-out 0s, background 180ms ease-out 0s;
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+}
+          .guildname.checked {
+    color: #fff;
+}
+ .guildname {
+    text-align: "left";
+    font-family: poppins;
+    font-size: 18px;
+    color: #b9bbbe;
+    border-radius: 3px;
+    padding: 8px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 300ms;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+          .box1 {
+    background: url(../svg/cards/1.svg),linear-gradient(150deg,#5a57c9,#44409a);
+    background-position: center;
+    background-size: 100%;
+            
+}
+
+          .box {
+    background-position-x: 0%,0%;
+    background-position-y: 0%,0%;
+    background-size: auto,auto;
+    background-position: center;
+    background-size: 100%;
+    height: 100px;
+    box-shadow: 0 0 20px -10px rgba(0,0,0,.05);
+    position: relative;
+    border-radius: 4px;
+    color: #fff;
+    transition: 250ms;
+}
+
+.text-center {
+    text-align: center!important;
+}
+
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+          .container, .container-sm {
+    max-width: 540px;
+}
+
+          .container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+          .form-control {
+    display: block;
+    width: 50%;
+    height: 40px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #cbcbca;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+
+
+.wrapper{
+    width: 420px;
+    padding: 30px 20px;
+    position: absolute;
+    bottom: 50px;
+    right: 0;
+    overflow: hidden;
+}
+#show-toast{
+    height: 50px;
+    width: 80px;
+    background-color: #cbcbca;
+    color: #111111;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#toast{
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 10px 20px rgba(75, 50, 50, 0.05);
+    border-left: 8px solid #ff355b;
+    border-radius: 7px;
+    display: grid;
+    grid-template-columns: 1.2fr 6fr 0.5fr;
+    transform: translate(400px);
+    transition: 1s;
+}
+.error{
+  border-left: 8px solid #ff355b;
+}
+
+          .error i{
+            color: #ff355b;
+          }
+          
+.container-1,.container-2{
+    align-self: center;
+}
+.container-1 i{
+    font-size: 40px;
+    color: #ff355b;
+}
+.container-2 p:first-child{
+    color: #101020;
+    font-weight: 600;
+    font-size: 16px;
+}
+.container-2 p:last-child{
+    font-size: 12px;
+    color: #656565;
+    font-weight: 400;
+}
+#toast button{
+    align-self: flex-start;
+    background-color: transparent;
+    font-size: 25px;
+    line-height: 0;
+    color: #656565;
+    cursor: pointer;
+}
+
+          .roles-container {
+    color: #fff;
+    font-size: 18px;
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+          .r {
+    background-color: rgba(54,60,70,.15);
+    padding: 10px;
+    border-radius: 5px;
+    margin-left: 3px;
+    font-weight: 300;
+    cursor: pointer;
+    margin-bottom: 5px;
+    line-height: 40px;
+    display: flex;
+    text-align: left;
+    width: 97%;
+    margin-bottom: 10px;
+    align-items: center;
+    transition: 300ms all;
+    text-decoration: none!important;
+}
+
+::-webkit-scrollbar{
+  width: 1px;
+  background-color:#111111;
+}      
+
+          .link-button {
+    padding: 10px 25px;
+    background: var(--button);
+    font-family: poppins;
+    border: none;
+    border-radius: 3px;
+    font-weight: 400;
+    color: #fff;
+    transition: 350ms all;
+    cursor: pointer;
+    font-size: 15px;
+    text-decoration: none;
+    margin: 20px;
+    margin-top: 20px;
+    margin-left: 10px;
+    font-weight: 400;
+    margin-right: 10px;
+}
+
+          .wrapper{
+    width: 420px;
+    padding: 30px 20px;
+    position: absolute;
+    bottom: 50px;
+    right: 0;
+    overflow: hidden;
+}
+
+
+
+
+
+.wrapper{
+    width: 420px;
+    padding: 30px 20px;
+    position: absolute;
+    bottom: 50px;
+    right: 0;
+    overflow: hidden;
+}
+#show-toast{
+    height: 50px;
+    width: 80px;
+    background-color: #cbcbca;
+    color: #111111;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#toast{
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 10px 20px rgba(75, 50, 50, 0.05);
+    border-left: 8px solid #ff355b;
+    border-radius: 7px;
+    display: grid;
+    grid-template-columns: 1.2fr 6fr 0.5fr;
+    transform: translate(400px);
+    transition: 1s;
+}
+.error{
+  border-left: 8px solid #ff355b;
+}
+
+          .error i{
+            color: #ff355b;
+          }
+          
+.container-1,.container-2{
+    align-self: center;
+}
+.container-1 i{
+    font-size: 40px;
+    color: #ff355b;
+}
+.container-2 p:first-child{
+    color: #101020;
+    font-weight: 600;
+    font-size: 16px;
+}
+.container-2 p:last-child{
+    font-size: 12px;
+    color: #656565;
+    font-weight: 400;
+}
+#toast button{
+    align-self: flex-start;
+    background-color: transparent;
+    font-size: 25px;
+    line-height: 0;
+    color: #656565;
+    cursor: pointer;
+}
+
+          
+            </style>
+
+<% if(blacklist) { %>
+    <h1 style="    color: white;">You're blacklisted, for more info join our support server.</h1>
+  
+    <a href="/support" class="support-btn">Support</a>
+  
+          <%} else {%>
+
+            <div class="tab-card" style="width: 450px; ">
+<br>
+              
+<a style="    justify-content: center;" href="/guild/<%= guild.id %>" class="guildname checked">
+Overview</a>
+              <br>
+              <br>
+
+<a style="    justify-content: center;" href="/guild/<%= guild.id %>/setting" class="guildname checked"> Settings</a>
+
+              
+              <br>
+              <br>
+
+<a style="    justify-content: center;" href="/guild/<%= guild.id %>/logs" class="guildname checked"> Logs</a>
+
+              <br>
+              <br>
+
+<a style="    justify-content: center;" class="guildname checked"> Roles</a>
+              <br>
+              <br>
+<a style="    justify-content: center;" href="/guild/<%= guild.id %>/welcomer" class="guildname checked"> Welcomer</a>
+              <br>
+              <br>
+                        
+            </div>
+
+      ㅤㅤㅤㅤㅤㅤ
+     
+            
+            <div class="tab-card" style="    height: 500px;
+    width: 600px; overflow: hidden; overflow-y: scroll;" >
+
+<br><span><a href="/guild/<%= guild.id %>/roles" class="link-button">&#60;- Back to roles</a></span><br><br>
+    
+<% function pick_color(color) {
+var c = color.substring(1);
+var rgb = parseInt(c, 16);
+var r = (rgb >> 16) & 0xff;
+var g = (rgb >>  8) & 0xff;
+var b = (rgb >>  0) & 0xff;
+var luma = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+if (luma < 50) {
+ return "#ccc";
+} else {
+ return color.toString();
+}
+} %>
+  
+<div class="r" data-clipboard="<%= role.id %>" style="color: <%= pick_color(role.hexColor) %>" title="Click to copy ID: <%= role.id %>"><svg width="20" height="23" viewBox="0 0 20 23"><g fill="none" fill-rule="evenodd"><path fill="<%= pick_color(role.hexColor) %>" d="M19.487 5.126L10.487 0.126C10.184 -0.042 9.81798 -0.042 9.51498 0.126L0.514977 5.126C0.197977 5.302 0.000976562 5.636 0.000976562 5.999C0.000976562 6.693 0.114977 22.999 10.001 22.999C19.887 22.999 20.001 6.693 20.001 5.999C20.001 5.636 19.804 5.302 19.487 5.126ZM10.001 5.999C11.382 5.999 12.501 7.118 12.501 8.499C12.501 9.88 11.382 10.999 10.001 10.999C8.61998 10.999 7.50098 9.88 7.50098 8.499C7.50098 7.118 8.61998 5.999 10.001 5.999ZM6.25098 16C6.25098 13.699 7.69998 12.25 10.001 12.25C12.302 12.25 13.751 13.699 13.751 16H6.25098Z"></path></g></svg>ㅤㅤ<%= role.name %><span class="r-members" style="margin-left: auto;"> ID: <%= role.id %></div>
+  <p> Click on the ID if you wanna copy it.</p>
+
+<div class="servers">
+<div class="server">
+<p class="sinfo"># Hoisted: <%= role.hoist %></p>
+<p class="sinfo"># Color:  <%= pick_color(role.hexColor) %></p>
+<p class="sinfo"># Position: <%= role.position %></p>
+<p class="sinfo"># Members: <%= role.members.size %></p>
+</div>
+</div>
+  
+  </div>
+<style>
+  .sinfo {
+  margin-bottom: 10px;
+  margin-top: 5px;
+  justify-content: left;
+  background: unset;
+  margin: 10px;
+}
+.servers {
+  padding: 10px;
+}
+  
+@media screen and (max-width: 820px) {
+  .server {
+    display: unset;
+  }
+  }
+  
+</style>
+
+  
+            </div>
+            <%}%>
+</section>
+    
+    <footer class="footer">
+        <p class="footer-title">©2022 AetherMix Bot, All rights reserved.</p>
+        <div class="social-icons">
+            <a href="/terms-of-use">Terms Of Use</a>
+            <a href="/privacy-policy">Privacy Policy</a>
+
+        </div>
+    </footer>
+  
+<script>
+document.querySelectorAll('.r').forEach(item => {
+  item.addEventListener('click', event => {
+let text = item.getAttribute("data-clipboard");
+if(text) navigator.clipboard.writeText(text);
+let copymessage = document.getElementById("copy");
+copymessage.classList.add("show");
+setTimeout(function(){ copymessage.className = copymessage.className.replace("show", ""); 
+}, 1500);
+  })
+})
+function copied() {
+var text = "Example text to appear on clipboard";
+navigator.clipboard.writeText(text)
+var copymessage = document.getElementById("copy");
+copymessage.classList.add("show");
+setTimeout(function(){ copymessage.className = copymessage.className.replace("show", ""); 
+}, 1500);
+}
+</script>
+  
+</body>
+
+
+</html>

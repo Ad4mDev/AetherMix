@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>AetherMix - Discord Bot</title>
+    <link rel="icon" href="https://cdn.discordapp.com/avatars/826542286719549472/e95e7f03584560de5804417a5054c7de.png?size=4096">
+</head>
+<body oncontextmenu="return false" style="    background-color: #1d1d1d;">
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth; 
+  color: #cbcbca;
+}
+
+
+.favjoin h1 span, .favjoin h2 {
+    font-weight: 700;
+}
+
+button, h1, h2, h3, h4, h5, p, span {
+    unicode-bidi: -moz-plaintext;
+    unicode-bidi: plaintext;
+}
+
+.error-comment, .panel-title, a, abbr, acronym, address, applet, article, aside, audio, b, big, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+    vertical-align: baseline;
+}
+
+
+
+header {
+    background-color: #111111;
+    width: 100%;
+    position: fixed;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 200px ;
+}
+
+.logo{
+    text-decoration: none;
+    color: #cbcbca;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.8em;
+}
+
+.navigation a{
+    color: #cbcbca;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 500;
+    padding-left: 30px;
+}
+
+.navigation a:hover{
+    color: #cbcbca;
+}
+
+section {
+    padding: 100px 200px;
+  background-color: #1d1d1d;
+}
+
+.support-btn {
+    color: #111111;
+    background-color: #cbcbca;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 600;
+    display: inline-block;
+    padding: 0.9375em 2.1875em;
+    letter-spacing: 1px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    transition: 0.7s ease;
+  }
+
+.main {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: url(images/background.jpeg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  background-color: #1d1d1d;
+}
+
+.main h2 {
+    color: #cbcbca;
+    font-size: 1.4em;
+    font-weight: 500;
+    color: #cbcbca;
+}
+
+.main h2 span {
+    display: inline-block;
+    margin-top: 10px;
+    color: #cbcbca;
+    font-size: 3em;
+    font-weight: 600;
+}
+
+.main h3 {
+    color: #cbcbca;
+    font-size: 2em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.flex {
+    flex-direction: column;
+}
+.flex {
+    display: flex;
+}
+
+.flex-1 {
+    flex: 1 1;
+}
+
+.custom-action {
+    padding-top: 100px;
+    -webkit-padding-start: 100px;
+    padding-inline-start: 100px;
+}
+
+.custom-action h1, .custom-action span {
+    -webkit-padding-start: 40px;
+    padding-inline-start: 40px;
+}
+
+.custom-action h1 {
+    -webkit-border-start: 4px solid #5b77dc;
+    border-inline-start: 4px solid #5b77dc;
+}
+
+.action-box h1 {
+    margin: inherit;
+    margin-bottom: 1.2rem;
+    font-size: 3rem;
+}
+
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+element.style {
+    width: 100%;
+}
+
+.botimg {
+    max-width: 100%;
+}
+
+.botimg {
+    max-width: 678px;
+    max-height: 440px;
+}
+
+img, svg {
+    vertical-align: middle;
+}
+
+wiidget {
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-left: 70%;
+}
+.main-btn {
+    color: #111111;
+    background-color: #cbcbca;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 600;
+    display: inline-block;
+    padding: 0.9375em 2.1875em;
+    letter-spacing: 1px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    transition: 0.7s ease;
+}
+
+.main-btn:hover {
+    background-color: #cbcbca;
+    transform: scale(1.1);
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 1.7em;
+    padding-right: 30px;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    color: #cbcbca;
+    font-size: 2.2em;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #fff;
+    width: 21.25em;
+    box-shadow: 0 5px 25px rgba(1 1 1 / 15%);
+    border-radius: 10px;
+    padding: 25px;
+    margin: 15px;
+    transition: 0.7s ease;
+}
+
+.card:hover {
+    transform: scale(1.1);
+}
+
+.card .icon {
+    color: #cbcbca;
+    font-size: 8em;
+    text-align: center;
+}
+
+.info {
+    text-align: center;
+}
+
+.info h3{
+    color: #cbcbca;
+    font-size: 1.2em;
+    font-weight: 700;
+    margin: 10px;
+    color: white;
+}
+
+.projects {
+    background-color: #1d1d1d;
+}
+
+.projects .content{
+    margin-top: 30px;
+}
+
+.project-card {
+    background-color: #fff;
+    border: 1px solid #fff;
+    min-height: 14em;
+    width: 23em;
+    overflow: hidden;
+    border-radius: 10px;
+    margin: 20px;
+    transition: 0.7s ease;
+}
+
+.project-card:hover {
+   transform: scale(1.1);
+}
+
+.project-card:hover .project-image {
+    opacity: 0.9;
+ }
+
+.project-image img{
+    width: 100%
+}
+
+.project-info {
+    padding: 1em;
+}
+
+.project-category {
+    font-size: 0.8em;
+    color: white;
+}
+
+.project-title {
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+    font-weight: 800;
+    margin-top: 10px;
+}
+
+.more-details {
+    text-decoration: none;
+    color: #cbcbca;
+}
+
+.more-details:hover {
+    color: #cbcbca;
+}
+
+.contact .icon{
+    font-size: 4.5em;
+}
+
+.contact .info h3 {
+     color: white;
+}
+
+.contact .info p {
+    font-size: 1.5em;
+}
+
+.footer {
+    background-color: #111111;
+    color: #fff;
+    padding: 2em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-title {
+    font-size: 1.3em;
+    font-weight: 600;
+}
+
+.footer-title span {
+    color: #cbcbca;
+}
+
+.footer .social-icons a{
+    font-size: 1.3em;
+    padding: 0 12px 0 0;
+}
+
+@media (max-width:1023px){
+    header{
+        padding: 12px 20px;
+    }
+
+    .navigation a{
+        padding-left: 10px;
+    }
+
+    .title{
+        font-size: 1.8em;
+    }
+
+    section{
+        padding: 80px 20px;
+    }
+
+    .main-content h2{
+        font-size: 1em;
+    }
+
+    .main-content h3{
+        font-size: 1.6em;
+        color: white;
+    }
+
+    .content{
+        flex-direction: column;
+        align-items: center;
+    }
+
+}
+
+
+
+
+
+@media (max-width:641px){
+    body{
+        font-size: 12px;
+    }
+
+    .main-content h2{
+        font-size: 0.8em;
+    }
+
+    .main-content h3{
+        font-size: 1.4em;
+        color: white;
+    }
+}
+
+@media (max-width:300px){
+    body{
+        font-size: 10px;
+     
+    }
+}
+
+.pro-img{
+	float: left;
+	width: 40px;
+	margin-top: 5px;
+  border-radius: 40%;
+}
+
+.profile{
+	display: inline-block;
+	float: right;
+	width: 160px;
+}
+
+.profile p{
+	color: white;
+	font-weight: 500;
+	margin-left: 55px;
+	margin-top: 10px;
+	font-size: 13.5px;
+}
+
+.ready {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-right: 150px;
+    margin-left: 120px;
+}
+
+
+
+.right {
+    position: absolute;
+    right: 0;
+    margin-right: 250px;
+    background-color: #cbcbca;
+    border: 2px solid #cbcbca;
+    color: #111111;
+    display: inline-block;
+    font-family: Whitney, "Open Sans", Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 11pt;
+    border-radius: 3px;
+    cursor: pointer;
+    height: 45px;
+    width: 250px;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
+}
+
+button {
+    appearance: auto;
+    -webkit-writing-mode: horizontal-tb !important;
+    font-style: ;
+    font-variant-ligatures: ;
+    font-variant-caps: ;
+    font-variant-numeric: ;
+    font-variant-east-asian: ;
+    font-weight: ;
+    font-stretch: ;
+    font-size: ;
+    font-family: ;
+    text-rendering: auto;
+    color: -internal-light-dark(black, white);
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+    cursor: default;
+    box-sizing: border-box;
+    background-color: -internal-light-dark(rgb(239, 239, 239), rgb(59, 59, 59));
+    margin: 0em;
+    padding: 1px 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+    border-image: initial;
+}
+
+.h2 {
+color: #cbcbca;
+}
+
+.botinfo {
+color: #cbcbca;
+}  
+  
+.dropdown-menu.show {
+    display: block;
+}
+
+.dropdown-menu[data-bs-popper] {
+    top: 100%;
+    left: 0;
+    margin-top: .125rem;
+    margin-left: 1500px;
+}
+
+.dropdown-menu {
+    position: absolute;
+    z-index: 1000;
+    display: none;
+    min-width: 10rem;
+    padding: .5rem 0;
+    margin: 0;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .25rem;
+}
+
+ol ol, ol ul, ul ol, ul ul {
+    margin-bottom: 0;
+}
+
+dl, ol, ul {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+ul ul {
+    list-style-type: circle;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+}
+
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: .25rem 1rem;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: inherit;
+    text-decoration: none;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+}
+
+    ::-webkit-scrollbar{
+  width: 0.0001px;
+  background-color:#111111;
+}    
+
+</style>
+
+
+    <header>
+        <a href="#" class="logo">AETHERMIX</a>
+        <nav class="navigation">
+            <a href="/support">support</a>
+            <a href="/invite">Invite</a>
+            <% if(!user) { %> 
+            <a href="/login">Login</a>
+            <%} else {%>
+          
+            <a><%= user.username %></a></select>
+            
+
+
+            <%}%>
+            
+        </nav>
+    </header>
+
+
+              
+    <section class="main">
+        <div>
+            <h2><br><span>HI! I'M AETHERMIX! </span></h2>
+            <h3>the best discord bot to grow up your discord server.</h3>
+            <a href="/invite" class="main-btn">Add to discord</a>
+            <% if(!user) { %> 
+            <a href="/login" class="main-btn">Login</a>
+            <%} else {%>
+            <a href="/dashboard" class="main-btn">Dashboard</a>
+            <%}%>
+        </div>
+    </section>
+
+   
+
+    <section  class="projects" class="main">
+      <% if(!user) { %>
+        <%} else {%>
+      <div>
+          <h3 class="botinfo" class="color: #cbcbca;">ㅤㅤㅤ + <%= client.guilds.cache.reduce((users , value) => users + value.memberCount, 0) %> Users !ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ+ <%= client.guilds.cache.size %> Guilds !ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ+ <%= client.channels.cache.size %> Channels !  </h3>
+
+        <br><br><br>
+       <%}%>     
+         </div>
+        <div>
+        <h1 class="title"><span>Join our</span></h1>
+        <h6 class="title">Community now!</h6>
+        </div>
+
+        <div>
+          <iframe style="margin-left: 29%;" src="https://discord.com/widget?id=862765780289716234&theme=dark" width="500" height="600" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+        </div>
+
+        
+
+    </section>
+
+    <section class="main">
+        
+<div class="ready">
+  <button class="right" onclick="PopupCenter('https://discord.com/api/oauth2/authorize?client_id=826542286719549472&permissions=0&scope=bot', 'Add AetherMix to your server.', 500, 666)">Invite Me</button>
+  
+    <h2>Ready to Grow Up Your discord Server?<br>
+      AetherMix is the best mulipurpose discord bot to grow your server.</h2>
+  </div>
+
+
+    </section>
+    
+    <footer class="footer">
+        <p class="footer-title">©2022 AetherMix Bot, All rights reserved.</p>
+        <div class="social-icons">
+            <a href="/terms-of-use">Terms Of Use</a>
+            <a href="/privacy-policy">Privacy Policy</a>
+
+        </div>
+    </footer>
+</body>
+
+<script>
+    function PopupCenter(e, n, t, i) {
+        var o = void 0 != window.screenLeft ? window.screenLeft : screen.left,
+            d = void 0 != window.screenTop ? window.screenTop : screen.top,
+            c = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width,
+            w = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height,
+            r = c / 2 - t / 2 + o, h = w / 2 - i / 2 + d,
+            s = window.open(e, n, "scrollbars=yes, width=" + t + ", height=" + i + ", top=" + h + ", left=" + r);
+        window.focus && s.focus()
+    }
+</script>
+</html>
